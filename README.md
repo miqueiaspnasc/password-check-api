@@ -18,12 +18,12 @@ A aplicação está dividida em duas camadas:
 Os pacotes de fontes e testes seguem a mesma estrutura para facilitar a organização.
 
 ### Executando o projeto localmente  
-Para subir a aplicação via docker, execute o seguinte comando via terminal:  
+1 - Execute o seguinte comando via terminal para subir a aplicação localmente:  
 ``
 docker run -p8080:7000 miqueias/password-check-api:latest
 ``
 
-Para testar o endpoint, execute o seguinte comando via terminal:  
+2 - Execute o seguinte comando via terminal para testar o endpoint que está executando localmente:  
 ``
 curl -s -o -I -w "Response status code %{http_code}\n" --request POST 'http://localhost:8080/password/check' --header 'Content-Type: application/json' --data-raw '{
 "password": "Inserir uma senha aqui"

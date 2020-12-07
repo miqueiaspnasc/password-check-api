@@ -6,12 +6,18 @@ import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.post
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 class App {
-
-    val app = Javalin.create().apply {
+    val logger: Logger = LoggerFactory.getLogger(App::class.java)
+    val app = Javalin.create{ config ->
+        config.requestLogger { ctx, ms ->
+            logger.info("method=${ctx.method()}, path=${ctx.path()} responseTime=$ms, statusCode=${ctx.status()}")
+        }
+    }.apply {
         exception(Exception::class.java) { e, _ -> e.printStackTrace() }
-        error(404) { ctx -> ctx.json("not found") }
+        error(404) { ctx -> ctx.json("Resource not found") }
     }
 
     fun start(port: Int) {

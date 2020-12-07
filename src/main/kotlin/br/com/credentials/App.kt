@@ -5,6 +5,7 @@ import br.com.credentials.service.passwordValidatorModule
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.post
 import org.koin.core.context.startKoin
+import org.koin.core.context.stopKoin
 
 class App {
 
@@ -23,6 +24,7 @@ class App {
     }
 
     fun stop() {
+        stopKoin()
         app.stop()
     }
 }

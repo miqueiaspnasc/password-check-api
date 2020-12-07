@@ -1,9 +1,9 @@
-##Serviço web para validação de senha
+## Serviço web para validação de senha
 
-###Tecnologias utilizadas:
+### Tecnologias utilizadas:
 Kotlin, Javalin, Koin, JUnit, AssertJ, Unirest-Java, SLF4
 
-###Sobre a arquitetura
+### Sobre a arquitetura
 A aplicação está dividida em duas camadas:  
 - api: Aqui ficam as classes responsáveis por captar os dados que chegam no endpoint, traduzindo para a camada de serviço e vice-versa.
   O serviço web tem a seguinte assinatura:
@@ -17,7 +17,7 @@ A aplicação está dividida em duas camadas:
 
 Os pacotes de fontes e testes seguem a mesma estrutura para facilitar a organização.
 
-###Executando o projeto localmente  
+### Executando o projeto localmente  
 Para subir a aplicação via docker, execute o seguinte comando via terminal:  
 ``
 docker run -p8080:7000 miqueias/password-check-api:latest
